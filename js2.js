@@ -1,6 +1,6 @@
 'use strict';
 
-                                                                                                                                // task 1
+// task 1
 
 let user = {
     name: 'Philip',
@@ -22,7 +22,7 @@ for (let key in user) {
     console.log(key + " : " + user[key]);
 }
 
-                                                                                                                                // task 2
+// task 2
 
 function task2func(a) {
     let sum = 0;
@@ -45,45 +45,59 @@ let a;
 
 console.log(task2func(a));
 
-                                                                                                                                    // task 3 
+// task 3 
 
 function task3(a, b, c) {
-    let abiggerZero = parseInt(a) > 0;
-    let alessZero = parseInt(a) < 0;
-    let bBiggerZero = parseInt(b) > 0;
-    let bLessZero = parseInt(b) < 0;
-    let cValues = c == "+" || c == "-" || c == "*" || c == "/";
-
     let result = 0;
 
     try {
-        if (abiggerZero, alessZero, bLessZero, bBiggerZero, cValues) {
-            switch (c) {
-                case "+": {
+
+        switch (c) {
+            case "+": {
+                if (a instanceof Number || b instanceof Number) {
                     result = a + b;
-                    break;
+                } else {
+                    throw new SyntaxError();
                 }
-
-                case "-": {
-                    result = a - b;
-                    break;
-                }
-
-                case "*": {
-                    result = a * b;
-                    break;
-                }
-
-                case "/": {
-                    result = a / b;
-                    break;
-                }
+                break;
             }
-        } else {
-            throw new SyntaxError();
+
+            case "-": {
+                if (a instanceof Number || b instanceof Number) {
+                    result = a - b;
+                } else {
+                    throw new SyntaxError();
+                }
+                break;
+            }
+
+            case "*": {
+                if (a instanceof Number || b instanceof Number) {
+                    result = a * b;
+                } else {
+                    throw new SyntaxError();
+                }
+                break;
+            }
+
+            case "/": {
+                if (a instanceof Number && b instanceof Number && a != 0 && b != 0) {
+                    result = a / b;
+                } else {
+                    throw new SyntaxError();
+                }
+                break;
+            }
+
+            default: {
+                throw new SyntaxError();
+            }
         }
-    } catch (err) {
+    }
+
+    catch (err) {
         console.log("Error: " + err);
+        return "Error";
     }
 
     return result;
@@ -93,6 +107,6 @@ function task3(a, b, c) {
 
 let a1;         //num 1
 let b1;         //num 2
-let c1 = " ";      // + - / * 
+let c1;         // + - / * 
 
 console.log(task3(a1, b1, c1));
