@@ -91,8 +91,8 @@ function task3(a, b, c) {
 
 
 
-let a1 = 0;
-let b1 = 2;
-let c1 = "22";
+let a1;         //num 1
+let b1;         //num 2
+let c1 = " ";      // + - / * 
 
 console.log(task3(a1, b1, c1));
